@@ -60,7 +60,11 @@ com.serhat.library
 ├── dto
 │   └── BookRequest.java
 │
+├── exception
+│   └── GlobalExceptionHandler.java
+│
 └── LibraryManagementApiApplication.java
+
 ```
 
 ---
