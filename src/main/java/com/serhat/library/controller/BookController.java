@@ -1,9 +1,9 @@
 package com.serhat.library.controller;
 
-import jakarta.validation.Valid;
 import com.serhat.library.dto.BookRequest;
 import com.serhat.library.entity.Book;
 import com.serhat.library.service.BookService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    // kitap ekleme
+    // CREATE
     @PostMapping
     public Book addBook(@Valid @RequestBody BookRequest dto) {
 
@@ -29,28 +29,23 @@ public class BookController {
         return bookService.addBook(book);
     }
 
-    // tüm kitapları listeleme
+    // READ
     @GetMapping
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
     }
 
-    // kitap silme
+    // DELETE
     @DeleteMapping("/{id}")
     public void deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);
     }
 
-    // kitap güncelleme
+    // UPDATE
     @PutMapping("/{id}")
     public Book updateBook(@PathVariable Long id,
                            @Valid @RequestBody BookRequest dto) {
 
-        Book book = new Book();
-        book.setId(id);
-        book.setTitle(dto.getTitle());
-        book.setAuthor(dto.getAuthor());
-
-        return bookService.updateBook(book);
+        return bookService.updateBook(id, dto);
     }
 }
