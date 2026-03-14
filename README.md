@@ -38,6 +38,10 @@ Controller → Service → Repository → Entity → Database
 * **Database**
   PostgreSQL database storing book records.
 
+* **Exception Handling**
+  This project uses a GlobalExceptionHandler to provide consistent error responses for the API.
+  Common exceptions such as validation errors or resource not found errors are handled globally.
+
 ---
 
 # Project Structure
